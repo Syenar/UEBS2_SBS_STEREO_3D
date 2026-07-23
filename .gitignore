@@ -1,0 +1,29 @@
+# Git
+.git/
+
+# Build
+StereoMod/bin/
+StereoMod/obj/
+**/bin/
+**/obj/
+*.user
+*.suo
+.vs/
+.idea/
+
+# Large / local-only artifacts
+docs/probe/*.png
+docs/bepinex-install-manifest.json
+dist/
+
+# OS / editor
+Thumbs.db
+Desktop.ini
+*.swp
+*~
+.DS_Store
+
+# Local agent / Cursor
+.cursor/
+uploads/
+agent-transcripts/

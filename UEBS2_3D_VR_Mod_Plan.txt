@@ -1,0 +1,60 @@
+UEBS2 STEREO / VR MOD PLAN
+
+SUPERSEDED FOR PHASE 1 ARCHITECTURE: This file is historical discovery notes only.
+Authoritative Phase 1 architecture, wiring, UI/controls, and acceptance live in docs/PLAN.md.
+On any conflict, ignore this file.
+
+Goal
+Create a non-destructive UEBS2 runtime mod. Phase 1 targets side-by-side stereo output for a 3D projector. VR is a separate later phase.
+
+What we found
+- Game: C:\Program Files (x86)\Steam\steamapps\common\UEBS2
+- Engine: Unity 2018.4.26f1, Mono/.NET, Direct3D 11.
+- GPU in the latest game log: AMD Radeon RX 7900 XTX, 24 GB VRAM.
+- Native VR is off: UEBS2_Data\boot.config contains "vr-enabled=0".
+- No active OpenXR/SteamVR/Oculus code was found in Assembly-CSharp.dll.
+- Existing Workshop .bgmod files are unit-data/content mods; they cannot change rendering.
+
+Relevant files
+- Gameplay/camera code to inspect and hook:
+  C:\Program Files (x86)\Steam\steamapps\common\UEBS2\UEBS2_Data\Managed\Assembly-CSharp.dll
+- Unity renderer binary (compiled; no source available):
+  C:\Program Files (x86)\Steam\steamapps\common\UEBS2\UnityPlayer.dll
+- Game configuration:
+  C:\Program Files (x86)\Steam\steamapps\common\UEBS2\UEBS2_Data\boot.config
+- Game log:
+  C:\Users\samsa\AppData\LocalLow\Brilliant Game Studios\UEBS2\output_log.txt
+- Workshop content:
+  C:\Program Files (x86)\Steam\steamapps\workshop\content\1468720
+
+Camera targets already present in game code
+- HeroCamera: LateUpdate, FirstPerson, ThirdPerson, Orbit
+- FreeCamera: Awake, CaptureInput, ReleaseInput, Update
+- ExampleCharacterCamera: UpdateWithInput, LockThirdPerson, LockFirstPerson, Scope
+
+Plan
+1. Back up only the files we add; do not edit UEBS2.exe, Assembly-CSharp.dll, UnityPlayer.dll, or boot.config.
+2. Install a Unity Mono runtime loader (BepInEx) beside the game, with an easy removal path.
+3. Create a small plugin that logs the active Unity Camera and the active camera-controller type when a battle loads.
+4. Test the plugin on a small battle and confirm it survives menu, free-camera, and first/third-person camera changes.
+5. Clone the active camera for a second eye. Keep the original as the left eye and offset the second camera slightly to the right.
+6. Render left/right views side-by-side with adjustable eye separation, convergence, FOV, and a hotkey to enable/disable stereo.
+7. Test a small battle on the 3D projector. Confirm correct depth, no doubled UI, no severe shadow/LOD artifacts, and acceptable frame time.
+8. Test progressively larger battles. Set a practical stereo unit-count/performance limit.
+9. Only if projector stereo is stable, research a separate OpenXR/SteamVR layer for headset output, head tracking, VR UI, and controller input.
+
+Success criteria for Phase 1
+- No permanent game-file modifications.
+- A small battle displays correct left/right side-by-side stereo.
+- Camera modes continue to work.
+- The projector can show stable 3D depth.
+- Disabling the plugin immediately restores normal UEBS2 rendering.
+
+Risks
+- Stereo roughly increases scene-rendering cost and may make giant battles impractical.
+- UEBS2 may replace cameras during scenes/modes, requiring reattachment.
+- HUD/UI may require a separate flat overlay solution.
+- Full VR is significantly harder than projector stereo and is not guaranteed by Phase 1.
+
+Recommendation
+Start with the runtime-plugin camera discovery test, then build the small-battle side-by-side stereo prototype. Do not attempt full VR until the projector test is proven.

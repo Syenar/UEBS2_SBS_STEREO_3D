@@ -1,0 +1,59 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <AssemblyName>UEBS2Stereo</AssemblyName>
+    <RootNamespace>UEBS2Stereo</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GameRoot Condition="'$(GameRoot)' == ''">C:\Program Files (x86)\Steam\steamapps\common\UEBS2</GameRoot>
+    <GameManagedDir Condition="'$(GameManagedDir)' == ''">$(GameRoot)\UEBS2_Data\Managed</GameManagedDir>
+    <BepInExDir Condition="'$(BepInExDir)' == ''">$(GameRoot)\BepInEx\core</BepInExDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BepInEx" Condition="Exists('$(BepInExDir)\BepInEx.dll')">
+      <HintPath>$(BepInExDir)\BepInEx.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony" Condition="Exists('$(BepInExDir)\0Harmony.dll')">
+      <HintPath>$(BepInExDir)\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine" Condition="Exists('$(GameManagedDir)\UnityEngine.dll')">
+      <HintPath>$(GameManagedDir)\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule" Condition="Exists('$(GameManagedDir)\UnityEngine.CoreModule.dll')">
+      <HintPath>$(GameManagedDir)\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule" Condition="Exists('$(GameManagedDir)\UnityEngine.IMGUIModule.dll')">
+      <HintPath>$(GameManagedDir)\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule" Condition="Exists('$(GameManagedDir)\UnityEngine.UIModule.dll')">
+      <HintPath>$(GameManagedDir)\UnityEngine.UIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI" Condition="Exists('$(GameManagedDir)\UnityEngine.UI.dll')">
+      <HintPath>$(GameManagedDir)\UnityEngine.UI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule" Condition="Exists('$(GameManagedDir)\UnityEngine.InputLegacyModule.dll')">
+      <HintPath>$(GameManagedDir)\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule" Condition="Exists('$(GameManagedDir)\UnityEngine.ImageConversionModule.dll')">
+      <HintPath>$(GameManagedDir)\UnityEngine.ImageConversionModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule" Condition="Exists('$(GameManagedDir)\UnityEngine.AssetBundleModule.dll')">
+      <HintPath>$(GameManagedDir)\UnityEngine.AssetBundleModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>
