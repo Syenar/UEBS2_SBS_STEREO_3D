@@ -2,7 +2,7 @@
 
 BepInEx 5 plugin that presents **Ultimate Epic Battle Simulator 2** as fuseable **half side-by-side** stereo for 3D projectors.
 
-**Current package:** [`releases/UEBS2Stereo-1.1.6.zip`](releases/UEBS2Stereo-1.1.6.zip)
+**Current package:** [`releases/UEBS2Stereo-1.1.6.zip`](../releases/UEBS2Stereo-1.1.6.zip)
 
 ## Requirements
 
@@ -12,8 +12,9 @@ BepInEx 5 plugin that presents **Ultimate Epic Battle Simulator 2** as fuseable 
 ## Install (players)
 
 1. Install **BepInEx 5 x64** into the UEBS2 game folder if you do not already have it.
-2. Download [`releases/UEBS2Stereo-1.1.6.zip`](releases/UEBS2Stereo-1.1.6.zip).
-3. Extract so you have:
+2. Download [`releases/UEBS2Stereo-1.1.6.zip`](../releases/UEBS2Stereo-1.1.6.zip).
+3. Extract the zip **into the UEBS2 game folder** (the folder that contains `UEBS2.exe`).  
+   It already includes the `BepInEx/plugins/` path:
    ```
    <UEBS2>/BepInEx/plugins/UEBS2Stereo/UEBS2Stereo.dll
    <UEBS2>/BepInEx/plugins/UEBS2Stereo/Bundles/sbs_composite
@@ -59,12 +60,13 @@ This mod never modifies `UEBS2.exe`, `Assembly-CSharp.dll`, `UnityPlayer.dll`, o
 
 ## Modular layout
 
-Self-contained plugin folder for Nexus / GitHub Releases:
+Zip paths start at `BepInEx/plugins/` so you can extract onto the game root:
 
 ```
-UEBS2Stereo/
+BepInEx/plugins/UEBS2Stereo/
   UEBS2Stereo.dll
   README.md
+  INSTALL.txt
   Bundles/sbs_composite
 ```
 

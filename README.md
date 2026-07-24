@@ -4,10 +4,11 @@ Removable **BepInEx** mod that renders **Ultimate Epic Battle Simulator 2** as f
 
 ## Download / install
 
-**Player package (ready to extract):** [`releases/UEBS2Stereo-1.1.6.zip`](releases/UEBS2Stereo-1.1.6.zip)
+**Player package:** [`releases/UEBS2Stereo-1.1.6.zip`](releases/UEBS2Stereo-1.1.6.zip)
 
-1. Install [BepInEx 5 Windows x64](https://github.com/BepInEx/BepInEx/releases) into your UEBS2 folder.
-2. Extract the zip so you get `BepInEx/plugins/UEBS2Stereo/` (DLL + `Bundles/sbs_composite`).
+1. Install [BepInEx 5 Windows x64](https://github.com/BepInEx/BepInEx/releases) into your UEBS2 folder (if needed).
+2. Extract `UEBS2Stereo-1.1.6.zip` **into the UEBS2 game folder** (next to `UEBS2.exe`).  
+   The zip already contains `BepInEx/plugins/UEBS2Stereo/`.
 3. Launch UEBS2 and press **F8**.
 
 Full hotkeys/config: [`StereoMod/README.md`](StereoMod/README.md)
