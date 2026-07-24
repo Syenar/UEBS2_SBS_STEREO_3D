@@ -23,11 +23,18 @@ BepInEx 5 plugin that presents **Ultimate Epic Battle Simulator 2** as fuseable 
 | Key | Action |
 |-----|--------|
 | F8 | Toggle stereo |
-| F9 | Exit proof UI hide (only if enabled in config) |
-| [ / ] | Eye separation (IPD) |
-| ; / ' | Convergence |
+| F1 / F2 | Screen plane closer / farther (farther = more pop-out) |
+| F3 / F4 | Weaker / stronger eye separation |
+| PageDown / PageUp | Screen plane (same as F1/F2) |
+| Home / End | Separation (same as F3/F4) |
+| Keypad - / + | Screen plane |
+| [ ] - = | Same as above (via OnGUI; may miss on some layouts) |
+| F10 | Re-auto place screen plane |
 | F7 | Swap left/right eyes |
 | F6 | Zero-IPD diagnostic |
+| F9 | Exit proof UI hide (only if enabled in config) |
+
+While stereo is on, a HUD line shows live `IPD` and `Screen` values so you can confirm keys are registering.
 
 ## Config
 
@@ -35,6 +42,10 @@ BepInEx 5 plugin that presents **Ultimate Epic Battle Simulator 2** as fuseable 
 
 - `Stereo.ResolutionScale` (default `0.5`) — lower = smoother on high-res displays
 - `Stereo.AllowHighResolutionScale` (default `false`) — permits scales above 0.5
+- `Stereo.EyeSeparation` (default `0.28`) — parallax strength; try `0.35`–`0.55` if still mild
+- `Stereo.Convergence` (default `80`) — screen-plane distance when auto is off; farther = more pop-out
+- `Stereo.AutoScreenPlane` (default `true`) — lock screen plane to look-at so near pops out / far stays behind
+- `Stereo.MaxEyeSeparation` (default `1.5`) — clamp for live `[` / `]` tuning
 - `Debug.FirstProofUiHide` (default `false`) — temporary UI hide for world-stereo proof only
 
 ## Uninstall

@@ -1,7 +1,7 @@
 # Build a Nexus-ready zip: dist/UEBS2Stereo-<version>.zip
 $ErrorActionPreference = "Stop"
 $Workspace = Split-Path $PSScriptRoot -Parent
-$Version = "1.1.1"
+$Version = "1.1.6"
 $OutDir = Join-Path $Workspace "dist\UEBS2Stereo"
 $Zip = Join-Path $Workspace "dist\UEBS2Stereo-$Version.zip"
 

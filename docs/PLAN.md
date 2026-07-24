@@ -157,11 +157,15 @@ These are part of the intent even when they are easy to overlook. Confirmed pres
 
 ### Plugin controls
 - `F8`: enable/disable stereo
-- `[` / `]`: adjust eye separation
-- `;` / `'`: adjust convergence
+- `F3` / `F4`: depth strength as %% of screen plane (IPD tracks automatically)
+- `F1` / `F2`: move screen/pop-out plane (clamped to a safe band)
+- `F5`: comfort reset (recover from runaway tuning)
+- `F10`: re-auto place pop-out screen plane
 - `F7`: swap eyes
 - `F6`: zero-IPD diagnostic
-- All plugin hotkeys must be ignored while the game’s custom-input capture screen is open (`customInputMatch` / `enableInputCapture`)
+- Live HUD shows depth%% + screen distance; warns when above comfort
+- All plugin hotkeys must be ignored while the game's custom-input capture screen is open (`customInputMatch` / `enableInputCapture`)
+
 
 ## Complete wiring contract
 
@@ -320,7 +324,7 @@ flowchart TB
 - Require `n > 0`, `f > n`, `C > n`, finite aspect, and finite IPD; on invalid source data while stereo mode is engaged, enter dual-mono SBS instead of native mono.
 - Reset custom matrices before destroying cameras.
 - Phase 1 supports perspective gameplay cameras. If the selected source is orthographic or already uses an unsupported custom projection, switch to dual-mono SBS with one diagnostic log entry; do not emit native mono while stereo mode is engaged.
-- Start with `EyeSeparationWorldUnits = 0.064` and convergence `10.0`, then tune live. Include zero-IPD as a diagnostic.
+- Comfort stereo: depth strength ~**5.5% of screen-plane distance** (hard-capped ~10�14%), screen plane auto-biased **behind** the subject (`PopOutBias=1.4`) so nearer content can come through the glass. F3/F4 = depth%, F1/F2 = pop-out plane (clamped), **F5 = comfort reset**. Runaway screen (?10000) or crushed screen (?near) previously zeroed/broke fusion � those ranges are clamped now.
 
 ### RenderTextures and compositor
 - Default to half-SBS only for Phase 1.
