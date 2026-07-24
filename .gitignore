@@ -16,6 +16,9 @@ docs/probe/*.png
 docs/bepinex-install-manifest.json
 dist/
 
+# Tracked player packages live in releases/*.zip
+# (dist/ remains local build staging only)
+
 # OS / editor
 Thumbs.db
 Desktop.ini
