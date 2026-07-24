@@ -1,11 +1,13 @@
 # Releases
 
-Player-ready BepInEx plugin zips.
+| File | Who it's for | Install |
+|------|----------------|---------|
+| **[UEBS2Stereo-EasyInstall-1.1.6.zip](UEBS2Stereo-EasyInstall-1.1.6.zip)** | Most players | Open `Into_UEBS2_Game_Folder`, copy everything into the UEBS2 game folder (or run `Install.bat`). Includes BepInEx. |
+| [UEBS2Stereo-1.1.6.zip](UEBS2Stereo-1.1.6.zip) | Already have BepInEx | Extract into the UEBS2 game folder (`BepInEx/plugins/UEBS2Stereo/`). |
 
-| File | Version | Zip layout |
-|------|---------|------------|
-| [UEBS2Stereo-1.1.6.zip](UEBS2Stereo-1.1.6.zip) | 1.1.6 | `BepInEx/plugins/UEBS2Stereo/` (DLL + bundle + README) |
+Rebuild:
 
-**Install:** extract into the UEBS2 game folder (next to `UEBS2.exe`). Requires BepInEx 5 x64 already installed.
-
-Rebuild with `tools/package-nexus.ps1`.
+```powershell
+powershell -File tools/package-easy-install.ps1
+powershell -File tools/package-nexus.ps1
+```

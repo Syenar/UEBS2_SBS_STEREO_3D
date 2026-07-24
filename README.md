@@ -1,31 +1,43 @@
 # UEBS2 SBS Stereo 3D
 
-Removable **BepInEx** mod that renders **Ultimate Epic Battle Simulator 2** as fuseable **half side-by-side** stereo for 3D projectors.
+Removable mod that renders **Ultimate Epic Battle Simulator 2** as fuseable **half side-by-side** stereo for 3D projectors.
 
-## Download / install
+## Easiest install (recommended)
 
-**Player package:** [`releases/UEBS2Stereo-1.1.6.zip`](releases/UEBS2Stereo-1.1.6.zip)
+**Download:** [`releases/UEBS2Stereo-EasyInstall-1.1.6.zip`](releases/UEBS2Stereo-EasyInstall-1.1.6.zip)
 
-1. Install [BepInEx 5 Windows x64](https://github.com/BepInEx/BepInEx/releases) into your UEBS2 folder (if needed).
-2. Extract `UEBS2Stereo-1.1.6.zip` **into the UEBS2 game folder** (next to `UEBS2.exe`).  
-   The zip already contains `BepInEx/plugins/UEBS2Stereo/`.
-3. Launch UEBS2 and press **F8**.
+This zip includes **BepInEx + the stereo plugin** already nested correctly.
 
-Full hotkeys/config: [`StereoMod/README.md`](StereoMod/README.md)
+1. Close UEBS2.
+2. Open the zip → open **`Into_UEBS2_Game_Folder`**.
+3. Copy **everything inside that folder** into your UEBS2 game folder (the one with `UEBS2.exe`),  
+   **or** double-click `Install.bat` if Steam is in the default location.
+4. Launch UEBS2 and press **F8**.
 
-## Repo layout
+Typical Steam path:  
+`C:\Program Files (x86)\Steam\steamapps\common\UEBS2`
 
-| Path | Purpose |
-|------|---------|
-| `releases/` | Versioned install zips for players |
-| `StereoMod/` | Plugin source + AssetBundle |
-| `tools/package-nexus.ps1` | Rebuild the release zip |
-| `tools/deploy-plugin.ps1` | Build + deploy into a local UEBS2 install |
-| `docs/PLAN.md` | Authoritative Phase 1 plan |
+## Already have BepInEx?
 
-## Build from source
+Use the smaller plugin-only pack: [`releases/UEBS2Stereo-1.1.6.zip`](releases/UEBS2Stereo-1.1.6.zip)  
+(extract into the game folder; it already contains `BepInEx/plugins/UEBS2Stereo/`).
+
+## Hotkeys / config
+
+See [`StereoMod/README.md`](StereoMod/README.md).
+
+## Uninstall (easy pack)
+
+From the UEBS2 game folder, delete:
+
+- `winhttp.dll`
+- `doorstop_config.ini`
+- `.doorstop_version`
+- `BepInEx\`
+
+## Build packages from source
 
 ```powershell
-dotnet build StereoMod\UEBS2Stereo.csproj -c Release
-powershell -File tools\package-nexus.ps1
+powershell -File tools\package-easy-install.ps1   # BepInEx + plugin
+powershell -File tools\package-nexus.ps1          # plugin only
 ```

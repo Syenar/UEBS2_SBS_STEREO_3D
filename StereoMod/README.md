@@ -2,26 +2,28 @@
 
 BepInEx 5 plugin that presents **Ultimate Epic Battle Simulator 2** as fuseable **half side-by-side** stereo for 3D projectors.
 
-**Current package:** [`releases/UEBS2Stereo-1.1.6.zip`](../releases/UEBS2Stereo-1.1.6.zip)
+**Current packages:**
+- **Easiest (BepInEx included):** [`releases/UEBS2Stereo-EasyInstall-1.1.6.zip`](../releases/UEBS2Stereo-EasyInstall-1.1.6.zip)
+- Plugin only (if you already have BepInEx): [`releases/UEBS2Stereo-1.1.6.zip`](../releases/UEBS2Stereo-1.1.6.zip)
 
 ## Requirements
 
 - UEBS2 (Unity 2018.4.26f1, Mono x64)
-- [BepInEx 5](https://github.com/BepInEx/BepInEx/releases) Windows x64 (stable)
+- BepInEx 5 x64 — **included in the EasyInstall zip**
 
-## Install (players)
+## Install (easiest)
 
-1. Install **BepInEx 5 x64** into the UEBS2 game folder if you do not already have it.
-2. Download [`releases/UEBS2Stereo-1.1.6.zip`](../releases/UEBS2Stereo-1.1.6.zip).
-3. Extract the zip **into the UEBS2 game folder** (the folder that contains `UEBS2.exe`).  
-   It already includes the `BepInEx/plugins/` path:
-   ```
-   <UEBS2>/BepInEx/plugins/UEBS2Stereo/UEBS2Stereo.dll
-   <UEBS2>/BepInEx/plugins/UEBS2Stereo/Bundles/sbs_composite
-   <UEBS2>/BepInEx/plugins/UEBS2Stereo/README.md
-   ```
-4. Launch the game once so BepInEx generates config.
-5. Press **F8** to toggle half-SBS.
+1. Close UEBS2.
+2. Download [`UEBS2Stereo-EasyInstall-1.1.6.zip`](../releases/UEBS2Stereo-EasyInstall-1.1.6.zip).
+3. Open the zip → open **`Into_UEBS2_Game_Folder`**.
+4. Copy everything inside into your UEBS2 folder (where `UEBS2.exe` is), or run `Install.bat`.
+5. Launch and press **F8**.
+
+## Install (plugin only)
+
+1. Install [BepInEx 5](https://github.com/BepInEx/BepInEx/releases) Windows x64 if needed.
+2. Extract [`UEBS2Stereo-1.1.6.zip`](../releases/UEBS2Stereo-1.1.6.zip) into the UEBS2 game folder.
+3. Launch and press **F8**.
 
 ## Hotkeys
 
