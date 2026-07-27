@@ -1,5 +1,12 @@
 # UEBS2 Mods — Agent instructions
 
+## Related project: Arkham Knight 3D SBS
+
+If working on `Arkham 3D Projects/Arkham Knight 3D` or Batman Arkham Knight stereo:
+**NEVER remove `Binaries\Win64\dxgi.dll`.** It is required for half-SBS; without it the game is mono.
+Must be the **geo-11 loader** dxgi (SHA256 `5B871985…`, 174080 bytes) — not the legacy `8603C2CB…` (Fatals the packer).
+Locked recipe: that project's `working_config/MILESTONE_v0.6.0_LOADER_DXGI.md`, `NEVER_REMOVE_DXGI.txt`, `AGENTS.md`, `.cursor/rules/dxgi-required.mdc`.
+
 ## Required tooling
 
 This project **requires** jcodemunch and jdocmunch. Do not use Grep/Read/Glob as the primary path for indexed material.
